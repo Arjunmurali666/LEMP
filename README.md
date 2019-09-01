@@ -109,7 +109,7 @@
         - /tmp/wordpress.tar.gz
         - /tmp/wordpress/
 
-    - name: "LampStack - Restarting Services"
+    - name: "LempStack - Restarting Services"
       service:
         name: "{{ item }}"
         state: restarted
