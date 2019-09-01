@@ -22,8 +22,12 @@
             - php
             - php-fpm
             - MySQL-python
+            
     - name: 'Installing nginx using amazon linux extras'
       shell: amazon-linux-extras install nginx1.12
+        
+    - name: 'Installing php7.3 using amazon linux extras'
+      shell: amazon-linux-extras install php7.3
 
     - name: 'creating virtual host'
       template:
@@ -108,6 +112,9 @@
       with_items:
         - /tmp/wordpress.tar.gz
         - /tmp/wordpress/
+        
+    - name: 'adding listen port to php-fpm'
+      shell: echo "listen = 127.0.0.1:9000" >> /etc/php-fpm.d/www.conf
 
     - name: "LempStack - Restarting Services"
       service:
@@ -116,4 +123,5 @@
       with_items:
         - nginx
         - mariadb
+        - php-fpm
 ```
