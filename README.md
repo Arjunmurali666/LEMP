@@ -14,7 +14,7 @@
     mysql_password: wpuser
 
   tasks:
-    - name: 'Lamp installation'
+    - name: 'Lemp installation'
       yum:
         name:
             - php-mysql
